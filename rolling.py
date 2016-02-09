@@ -8,7 +8,7 @@ def startroll(winnings, gamesettings):
 def comeoutroll(gamesettings):
     roll = random.randrange(2,12)
     if roll == 2 or roll == 3 or roll == 12:
-        comewinnings = gamesettings["pass"]
+        comewinnings = -gamesettings["pass"]
     elif roll == 7 or roll == 11:
         comewinnings = gamesettings["pass"]
     else:
@@ -21,7 +21,7 @@ def pointroll(roll, gamesettings):
     diceroll = random.randrange(2,12)
     while diceroll != roll:
         if diceroll == 7:
-            pointresult = gamesettings["pass"] - gamesettings["passodds"]
+            pointresult = -(gamesettings["pass"] + gamesettings["passodds"])
             return pointresult
         diceroll = random.randrange(2,12)
 

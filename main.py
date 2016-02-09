@@ -17,13 +17,14 @@ while choice != "DONE":
 
 print("Final settings:")
 print("A. Starting amount: %d" % gamesettings["starting"])
-print("A. Pass bet: %d" % gamesettings["pass"])
-print("B. Pass odds bet: %d" % gamesettings["passodds"])
+print("B. Pass bet: %d" % gamesettings["pass"])
+print("C. Pass odds bet: %d" % gamesettings["passodds"])
 
 i = 1
 winnings = gamesettings["starting"]
+rounds = int(input("Number of rounds to sim: "))
 
-while i < 5:
+while i < rounds:
     minamt = gamesettings["pass"] + gamesettings["passodds"]
     if winnings < minamt:
         print("YOU OUT OF DOLLARS")
