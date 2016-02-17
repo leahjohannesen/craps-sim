@@ -1,12 +1,15 @@
 import random
 
+def diceroll():
+    return random.randrange(1,6) + random.randrange(1,6)
+
 def startroll(winnings, gamesettings):
     roundwinnings = comeoutroll(gamesettings)
     print("Round Winnings: %d" % roundwinnings)
     return winnings + roundwinnings
 
 def comeoutroll(gamesettings):
-    roll = random.randrange(2,12)
+    roll = diceroll()
     if roll == 2 or roll == 3 or roll == 12:
         comewinnings = -gamesettings["pass"]
     elif roll == 7 or roll == 11:
@@ -18,12 +21,12 @@ def comeoutroll(gamesettings):
 
 
 def pointroll(roll, gamesettings):
-    diceroll = random.randrange(2,12)
-    while diceroll != roll:
-        if diceroll == 7:
+    newroll = diceroll()
+    while newroll != roll:
+        if newroll == 7:
             pointresult = -(gamesettings["pass"] + gamesettings["passodds"])
             return pointresult
-        diceroll = random.randrange(2,12)
+        newroll = diceroll()
 
     if roll == 4 or roll == 10:
         pointresult = 2 * (gamesettings["pass"] + gamesettings["passodds"])
